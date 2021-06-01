@@ -1,0 +1,7 @@
+kode warna
+
+putih abu : #f5f7f7
+hijau muda 1 : #aff9e4
+hijau muda 2 : #60c5aa
+hijau tua 1 : #1A8D66
+hijau tua 2 : #01683C
