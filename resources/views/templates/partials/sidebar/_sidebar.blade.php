@@ -42,6 +42,14 @@
         </li>
         @endif
 
+        <li id="data-kecelakaan" class="nav-item">
+        <a class="nav-link" href="{{ route('data-kecelakaan.index') }}">
+          <i class="icon-chart menu-icon"></i>
+          <span class="menu-title">Data Kecelakaan</span>
+          <span class="badge badge-success"></span>
+        </a>
+      </li>
+
         @if (Auth()->user()->role_id == 1)
         <li id="master" class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">

@@ -4,16 +4,16 @@
     <div class="content-wrapper">
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb bg-light">
-                <li class="breadcrumb-item active" aria-current="page">Data User</li>
+                <li class="breadcrumb-item active" aria-current="page">Pengaturan Akun</li>
             </ol>
         </nav>
 
         <div class="row">
-            <div class="col-md-4 grid-margin">
+            <div class="col-md-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Form User</h6>
-                        <p id="ket-form" class="card-description">Form Tambah Data User</p>
+                        <h6 class="card-title">Detail Akun</h6>
+                        <p id="ket-form" class="card-description">Form Setting Data User</p>
                         <hr />
 
                         <form action="{{ route('user.store') }}" method="post">
@@ -21,22 +21,6 @@
 
                             <input id="method" type="hidden" name="method" value="post">
                             <input id="id_user" type="hidden" name="id_user">
-
-                            <div class="form-group">
-                                <label for="role">Role</label>
-                                <select name="role" id="role" class="form-control {{ $errors->has('role') ? 'has-error':'' }}">
-                                    <option value="">--pilih role--</option>
-                                    @if (!empty($roles))
-                                        @foreach ($roles as $role)
-                                        <option value="{{ $role->id }}" {{ $role->id == old('role') ? 'selected' : '' }}>{{ $role->name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-
-                                @if ($errors->has('role'))
-                                    <p class="text-danger">{{ $errors->first('role') }}</p>
-                                @endif
-                            </div>
 
                             <div class="form-group">
                                 <label for="email">Email</label>
@@ -55,6 +39,8 @@
                                     <p class="text-danger">{{ $errors->first('name') }}</p>
                                 @endif
                             </div>
+
+                            <p class="mt-4 mb-4"><span class="text-danger">*</span>) Jika tidak ingin mengganti password, kosongkan saja!</p>
 
                             <div class="form-group">
                                 <label for="password">password</label>
@@ -80,59 +66,6 @@
                 </div>
             </div>
 
-            <div class="col-md-8 grid-margin">
-                <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-title">Data User</h6>
-                        <hr />
-
-                        <div class="row mb-3">
-                            <div class="col-md-10">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Role</label>
-                                    <div class="col-sm-9">
-                                        <select id="role_search" class="form-control">
-                                            @if (Auth()->user()->role_id == 1)
-                                                <option value="">Semua</option>
-                                                @if (!empty($roles))
-                                                    @foreach ($roles as $role)
-                                                    <option value="{{ $role->id }}" {{ $role->id == old('role') ? 'selected' : '' }}>{{ $role->name }}</option>
-                                                    @endforeach
-                                                @endif
-                                            @else
-                                                <option value="3">Sopir Ambulans</option>
-                                            @endif
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-2">
-                                <button class="btn btn-primary" onclick="searchData()"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-
-
-                        <div class="table-responsive">
-                            @php
-                                $no = 1;
-                            @endphp
-                            <table id="table-user" class="table table-striped table-hover table-sm" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Username</th>
-                                        <th>Nama</th>
-                                        <th>Role</th>
-                                        <th>Verifikasi</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <!-- content-wrapper ends -->

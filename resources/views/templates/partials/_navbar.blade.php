@@ -19,7 +19,7 @@
           </a>
 
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-            {{-- <a href="#" style="text-decoration: none;">
+            <a href="{{ route('setting.account') }}" style="text-decoration: none;">
                 <div class="dropdown-item">
                     <p class="mb-0 font-weight-normal float-left">
                         <i class="icon-settings"></i>
@@ -27,7 +27,7 @@
                     </p>
                 </div>
             </a>
-            <div class="dropdown-divider"></div> --}}
+            <div class="dropdown-divider"></div>
             <a href="{{ route('logout') }}" style="text-decoration: none;" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <div class="dropdown-item">
                     <p class="mb-0 font-weight-normal float-left">
