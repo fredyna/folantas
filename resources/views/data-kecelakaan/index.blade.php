@@ -36,15 +36,15 @@
                                     <label for="jenis_laka" class="col-sm-3 col-form-label">Jenis Laka</label>
                                     <div class="col-sm-9">
                                         <select name="jenis_laka" id="jenis_laka" class="form-control {{ $errors->has('jenis_laka') ? 'has-error':'' }}">
-                                            <option value="">--pilih jenis laka--</option>
-                                            <option value="TABRAK DEPAN" {{ old('jenis_laka') == 'TABRAK DEPAN' ? 'selected':'' }}>TABRAK DEPAN</option>
-                                            <option value="TABRAK BELAKANG" {{ old('jenis_laka') == 'TABRAK BELAKANG' ? 'selected':'' }}>TABRAK BELAKANG</option>
-                                            <option value="TABRAK SAMPING" {{ old('jenis_laka') == 'TABRAK SAMPING' ? 'selected':'' }}>TABRAK SAMPING</option>
-                                            <option value="LAKA TUNGGAL" {{ old('jenis_laka') == 'LAKA TUNGGAL' ? 'selected':'' }}>LAKA TUNGGAL</option>
-                                            <option value="LAKA KARAMBOL" {{ old('jenis_laka') == 'LAKA KARAMBOL' ? 'selected':'' }}>LAKA KARAMBOL</option>
-                                            <option value="TABRAK LARI" {{ old('jenis_laka') == 'TABRAK LARI' ? 'selected':'' }}>TABRAK LARI</option>
-                                            <option value="TABRAK MANUSIA" {{ old('jenis_laka') == 'TABRAK MANUSIA' ? 'selected':'' }}>TABRAK MANUSIA</option>
-                                            <option value="TABRAK KA" {{ old('jenis_laka') == 'TABRAK KA' ? 'selected':'' }}>TABRAK KA</option>
+                                            <option value="">semua</option>
+                                            <option value="TABRAK DEPAN" {{ $jenis_laka == 'TABRAK DEPAN' ? 'selected':'' }}>TABRAK DEPAN</option>
+                                            <option value="TABRAK BELAKANG" {{ $jenis_laka == 'TABRAK BELAKANG' ? 'selected':'' }}>TABRAK BELAKANG</option>
+                                            <option value="TABRAK SAMPING" {{ $jenis_laka == 'TABRAK SAMPING' ? 'selected':'' }}>TABRAK SAMPING</option>
+                                            <option value="LAKA TUNGGAL" {{ $jenis_laka == 'LAKA TUNGGAL' ? 'selected':'' }}>LAKA TUNGGAL</option>
+                                            <option value="LAKA KARAMBOL" {{ $jenis_laka == 'LAKA KARAMBOL' ? 'selected':'' }}>LAKA KARAMBOL</option>
+                                            <option value="TABRAK LARI" {{ $jenis_laka == 'TABRAK LARI' ? 'selected':'' }}>TABRAK LARI</option>
+                                            <option value="TABRAK MANUSIA" {{ $jenis_laka == 'TABRAK MANUSIA' ? 'selected':'' }}>TABRAK MANUSIA</option>
+                                            <option value="TABRAK KA" {{ $jenis_laka == 'TABRAK KA' ? 'selected':'' }}>TABRAK KA</option>
                                         </select>
 
                                         @if ($errors->has('jenis_laka'))
@@ -57,12 +57,12 @@
                                     <label for="sebab_laka" class="col-sm-3 col-form-label">Sebab Laka</label>
                                     <div class="col-sm-9">
                                         <select name="sebab_laka" id="sebab_laka" class="form-control {{ $errors->has('sebab_laka') ? 'has-error':'' }}">
-                                            <option value="">--pilih sebab laka--</option>
-                                            <option value="FAKTOR MANUSIA" {{ old('sebab_laka') == 'FAKTOR MANUSIA' ? 'selected':'' }}>FAKTOR MANUSIA</option>
-                                            <option value="FAKTOR KENDARAAN" {{ old('sebab_laka') == 'FAKTOR KENDARAAN' ? 'selected':'' }}>FAKTOR KENDARAAN</option>
-                                            <option value="FAKTOR CUACA" {{ old('sebab_laka') == 'FAKTOR CUACA' ? 'selected':'' }}>FAKTOR CUACA</option>
-                                            <option value="FAKTOR JALAN" {{ old('sebab_laka') == 'FAKTOR JALAN' ? 'selected':'' }}>FAKTOR JALAN</option>
-                                            <option value="LAIN-LAIN" {{ old('sebab_laka') == 'LAIN-LAIN' ? 'selected':'' }}>LAIN-LAIN</option>
+                                            <option value="">semua</option>
+                                            <option value="FAKTOR MANUSIA" {{ $sebab_laka == 'FAKTOR MANUSIA' ? 'selected':'' }}>FAKTOR MANUSIA</option>
+                                            <option value="FAKTOR KENDARAAN" {{ $sebab_laka == 'FAKTOR KENDARAAN' ? 'selected':'' }}>FAKTOR KENDARAAN</option>
+                                            <option value="FAKTOR CUACA" {{ $sebab_laka == 'FAKTOR CUACA' ? 'selected':'' }}>FAKTOR CUACA</option>
+                                            <option value="FAKTOR JALAN" {{ $sebab_laka == 'FAKTOR JALAN' ? 'selected':'' }}>FAKTOR JALAN</option>
+                                            <option value="LAIN-LAIN" {{ $sebab_laka == 'LAIN-LAIN' ? 'selected':'' }}>LAIN-LAIN</option>
                                         </select>
 
                                         @if ($errors->has('sebab_laka'))
@@ -75,11 +75,11 @@
                                     <label for="tkp" class="col-sm-3 col-form-label">TKP</label>
                                     <div class="col-sm-9">
                                         <select name="tkp" id="tkp" class="form-control {{ $errors->has('tkp') ? 'has-error':'' }}">
-                                            <option value="">--pilih TKP--</option>
-                                            <option value="JALAN UTAMA" {{ old('tkp') == 'JALAN UTAMA' ? 'selected':'' }}>JALAN UTAMA</option>
-                                            <option value="JALAN KOTA" {{ old('tkp') == 'JALAN KOTA' ? 'selected':'' }}>JALAN KOTA</option>
-                                            <option value="JALAN ALTERNATIF" {{ old('tkp') == 'JALAN ALTERNATIF' ? 'selected':'' }}>JALAN ALTERNATIF</option>
-                                            <option value="JALAN TOL" {{ old('tkp') == 'JALAN TOL' ? 'selected':'' }}>JALAN TOL</option>
+                                            <option value="">semua</option>
+                                            <option value="JALAN UTAMA" {{ $tkp == 'JALAN UTAMA' ? 'selected':'' }}>JALAN UTAMA</option>
+                                            <option value="JALAN KOTA" {{ $tkp == 'JALAN KOTA' ? 'selected':'' }}>JALAN KOTA</option>
+                                            <option value="JALAN ALTERNATIF" {{ $tkp == 'JALAN ALTERNATIF' ? 'selected':'' }}>JALAN ALTERNATIF</option>
+                                            <option value="JALAN TOL" {{ $tkp == 'JALAN TOL' ? 'selected':'' }}>JALAN TOL</option>
                                         </select>
 
                                         @if ($errors->has('tkp'))
@@ -185,7 +185,13 @@
         }
 
         function searchData(){
-            //
+            let jenis_laka = $("#jenis_laka").val();
+            let sebab_laka = $("#sebab_laka").val();
+            let tkp = $("#tkp").val();
+            let url = "{{ route('data-kecelakaan.index') }}" + "?jenis_laka=" + jenis_laka
+                + "&sebab_laka=" + sebab_laka + "&tkp=" + tkp;
+
+            window.location.href = url;
         }
     </script>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DataKecelakaan;
 use Illuminate\Http\Request;
+use PDO;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class DataKecelakaanController extends Controller
@@ -15,7 +16,27 @@ class DataKecelakaanController extends Controller
 
     public function index(Request $request)
     {
-        $data['kecelakaan'] = DataKecelakaan::latest()->get();
+        $jenis_laka = $request->jenis_laka ? $request->jenis_laka : 'semua';
+        $sebab_laka = $request->sebab_laka ? $request->sebab_laka : 'semua';
+        $tkp = $request->tkp ? $request->tkp : 'semua';
+
+        $data['jenis_laka'] = $jenis_laka;
+        $data['sebab_laka'] = $sebab_laka;
+        $data['tkp'] = $tkp;
+        $data['kecelakaan'] = DataKecelakaan::where(function ($query) use ($jenis_laka) {
+            if ($jenis_laka != 'semua')
+                $query->where('jenis_laka', $jenis_laka);
+        })
+            ->where(function ($query) use ($sebab_laka) {
+                if ($sebab_laka != 'semua')
+                    $query->where('sebab_laka', $sebab_laka);
+            })
+            ->where(function ($query) use ($tkp) {
+                if ($tkp != 'semua')
+                    $query->where('tkp', $tkp);
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
         return view('data-kecelakaan.index')->with($data);
     }
 
