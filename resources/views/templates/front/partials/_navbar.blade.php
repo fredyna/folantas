@@ -4,7 +4,7 @@
             <div class="col-lg-2">
                 <div class="logo d-none d-lg-block">
                     <!-- Brand -->
-                    <a class="navbar-brand js-scroll-trigger" href="index.html">
+                    <a class="navbar-brand js-scroll-trigger" href="{{ route('home') }}">
                         <h2>FOLANTAS</h2>
                     </a>
                 </div>
@@ -53,13 +53,18 @@
                 <!-- Links -->
                 <ul class="navbar-nav ">
                     <li class="nav-item ">
-                        <a href="#" class="nav-link js-scroll-trigger">
+                        <a href="{{ route('home') }}" class="nav-link js-scroll-trigger">
                             Beranda
                         </a>
                     </li>
                     <li class="nav-item ">
                         <a href="#" class="nav-link js-scroll-trigger">
                             Data Kecelakaan
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="#" class="nav-link js-scroll-trigger">
+                            Data Kemacetan
                         </a>
                     </li>
                     <li class="nav-item ">
@@ -76,7 +81,11 @@
                 </ul>
 
                 <ul class="ml-lg-auto list-unstyled m-0">
-                    <li><a href="#" class="btn btn-white btn-circled">Lapor Kecelakaan</a></li>
+                    <li>
+                        <a href="#" class="btn btn-white btn-circled" style="font-size: 1em;" data-toggle="modal" data-target="#modal-lapor">
+                            <i class="ti-alert"></i> Lapor
+                        </a>
+                    </li>
                 </ul>
             </div> <!-- / .navbar-collapse -->
         </nav>

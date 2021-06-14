@@ -1,7 +1,7 @@
 <!-- partial:partials/_navbar.html -->
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-red">
     <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-      <a class="navbar-brand brand-logo" href="#">FOLANTAS</a>
+      <a class="navbar-brand brand-logo" href="{{ route('home') }}">FOLANTAS</a>
       <a class="navbar-brand brand-logo-mini" href="#"><img src="{{ asset('assets/images/logo/logo.svg')}}" alt="logo"/></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">

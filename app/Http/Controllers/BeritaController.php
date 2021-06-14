@@ -41,7 +41,8 @@ class BeritaController extends Controller
         $data = [
             'judul' => $request->judul,
             'thumbnail' => $thumbnail,
-            'deskripsi' => $request->deskripsi
+            'deskripsi' => $request->deskripsi,
+            'slug' => Str::slug($request->judul, '-'),
         ];
 
         Berita::create($data);
@@ -60,14 +61,15 @@ class BeritaController extends Controller
     {
         $request->validate([
             'judul' => 'required|min:5|max:200',
-            'thumbnail' => 'required|image',
+            'thumbnail' => 'nullable|image',
             'deskripsi' => 'required|max:2000'
         ]);
 
         $berita = Berita::findOrFail($id);
         $data = [
             'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi
+            'deskripsi' => $request->deskripsi,
+            'slug' => Str::slug($request->judul, '-'),
         ];
 
         $uploadedThumbnail = $request->file('thumbnail');

@@ -18,7 +18,6 @@ class CreateBeritasTable extends Migration
             $table->string('judul', 200);
             $table->string('thumbnail', 100);
             $table->text('deskripsi');
-            $table->string('slug', 250);
             $table->softDeletes();
             $table->timestamps();
         });

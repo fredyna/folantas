@@ -18,7 +18,7 @@
         </div>
       </li>
       <li id="dashboard" class="nav-item">
-        <a class="nav-link" href="{{ route('home') }}">
+        <a class="nav-link" href="{{ route('dashboard') }}">
           <i class="icon-rocket menu-icon"></i>
           <span class="menu-title">Dashboard</span>
           <span class="badge badge-success"></span>
@@ -73,7 +73,7 @@
         </li>
         @endif
 
-      @if (Auth()->user()->role_id == 1)
+      {{-- @if (Auth()->user()->role_id == 1)
         <li id="log" class="nav-item">
             <a class="nav-link" href="{{ route('log.index') }}">
             <i class="icon-book-open menu-icon"></i>
@@ -81,7 +81,7 @@
             <span class="badge badge-success"></span>
             </a>
         </li>
-      @endif
+      @endif --}}
 
     </ul>
   </nav>
