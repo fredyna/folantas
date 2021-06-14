@@ -43,12 +43,20 @@
         @endif
 
         <li id="data-kecelakaan" class="nav-item">
-        <a class="nav-link" href="{{ route('data-kecelakaan.index') }}">
-          <i class="icon-chart menu-icon"></i>
-          <span class="menu-title">Data Kecelakaan</span>
-          <span class="badge badge-success"></span>
-        </a>
-      </li>
+            <a class="nav-link" href="{{ route('data-kecelakaan.index') }}">
+            <i class="icon-chart menu-icon"></i>
+            <span class="menu-title">Data Kecelakaan</span>
+            <span class="badge badge-success"></span>
+            </a>
+        </li>
+
+        <li id="berita" class="nav-item">
+            <a class="nav-link" href="{{ route('berita.index') }}">
+            <i class="icon-list menu-icon"></i>
+            <span class="menu-title">Manajemen Berita</span>
+            <span class="badge badge-success"></span>
+            </a>
+        </li>
 
         @if (Auth()->user()->role_id == 1)
         <li id="master" class="nav-item">

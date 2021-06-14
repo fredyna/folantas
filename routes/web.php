@@ -36,6 +36,9 @@ Route::get('/notifikasi', 'NotificationController@index')->name('notifikasi.inde
 //data kecelakaan
 Route::resource('/data-kecelakaan', 'DataKecelakaanController');
 
+//manajemen berita
+Route::resource('/berita', 'BeritaController');
+
 /** modul master */
 Route::group(['prefix' => 'master'], function () {
     Route::resource('role', 'RoleController')->only([

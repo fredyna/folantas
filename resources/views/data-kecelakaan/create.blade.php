@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content-wrapper">
-        <nav aria-label="breadcrumb" jenis_laka="navigation">
+        <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb bg-light">
                 <li class="breadcrumb-item active" aria-current="page">Data Kecelakaan</li>
             </ol>
@@ -317,15 +317,6 @@
         $(function(){
             $("#data-kecelakaan").addClass('active');
         });
-
-        function hapusData(id){
-          let y = confirm('Yakin mau dihapus?');
-          if(y) $("#user-" + id).submit();
-        }
-
-        function searchData(){
-            //
-        }
     </script>
 @endsection
 
