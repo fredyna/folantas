@@ -11,8 +11,6 @@
 </div>
     <!-- /LOADER TEMPLATE -->
 
-    @include('templates.front.partials._navbar')
-
     @yield('content')
 
     <!-- Modal -->

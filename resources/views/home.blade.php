@@ -1,6 +1,7 @@
 @extends('templates.front.master')
 
 @section('content')
+    @include('templates.front.partials._navbar')
 <!-- HERO
 ================================================== -->
 <section class="banner-area py-7">

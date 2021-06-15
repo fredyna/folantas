@@ -1,6 +1,8 @@
 @extends('templates.front.master')
 
 @section('content')
+    @include('templates.front.partials._navbar_2')
+
    <!-- HERO
     ================================================== -->
     <section class="page-banner-area page-about">
