@@ -19,7 +19,7 @@ class CreateDataKecelakaansTable extends Migration
             $table->string('sebab_laka', 30);
             $table->string('tkp', 20);
             $table->enum('hari', ['SENIN', 'SELASA', 'RABU', 'KAMIS', 'JUMAT', 'SABTU', 'MINGGU']);
-            $table->date('waktu_laka');
+            $table->dateTime('waktu_laka');
             $table->string('kendaraan_terlibat', 30);
             $table->enum('jk_korban', ['LAKI-LAKI', 'PEREMPUAN']);
             $table->tinyInteger('usia_korban');
