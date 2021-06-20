@@ -1,6 +1,9 @@
 @extends('templates.master')
 
 @section('content')
+@php
+    $last_date = $last_date ? date('Y-m-d', strtotime($last_date . '- 1 day')) : date('Y-m-d', strtotime(date('Y-m-d') . '- 1 day'));
+@endphp
     <div class="content-wrapper">
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb bg-light">
@@ -148,7 +151,7 @@
                                                <td>{{ $item->sebab_laka }}</td>
                                                <td>{{ $item->tkp }}</td>
                                                <td>{{ $item->jk_korban }}</td>
-                                               <td class="text-right">{{ $item->usia_korban }}</td>
+                                               <td class="text-right">{{ $item->usia_korban }} TAHUN</td>
                                                <td class="text-center">{{ $item->waktu_laka }}</td>
                                                <td class="text-center">
                                                    <a href="{{ route('data-kecelakaan.show', $item->id) }}" class="p-1" data-toggle="tooltip" data-placement="left" title="Edit">

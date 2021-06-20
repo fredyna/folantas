@@ -28,6 +28,9 @@ Route::group(['prefix' => 'dashboard'], function () {
     //data kecelakaan
     Route::resource('/data-kecelakaan', 'DataKecelakaanController');
 
+    //data kemacetan
+    Route::resource('/data-kemacetan', 'DataKemacetanController');
+
     //manajemen berita
     Route::resource('/berita', 'BeritaController');
 

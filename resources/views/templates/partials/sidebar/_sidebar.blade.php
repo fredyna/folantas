@@ -50,6 +50,14 @@
             </a>
         </li>
 
+        <li id="data-kemacetan" class="nav-item">
+            <a class="nav-link" href="{{ route('data-kemacetan.index') }}">
+            <i class="icon-chart menu-icon"></i>
+            <span class="menu-title">Data Kemacetan</span>
+            <span class="badge badge-success"></span>
+            </a>
+        </li>
+
         <li id="berita" class="nav-item">
             <a class="nav-link" href="{{ route('berita.index') }}">
             <i class="icon-list menu-icon"></i>

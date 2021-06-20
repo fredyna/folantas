@@ -17,7 +17,7 @@ class DataKecelakaanController extends Controller
     public function index(Request $request)
     {
         $first_date = $request->first_date ? date('Y-m-d', strtotime($request->first_date)) : date('Y-m-d');
-        $last_date = $request->last_date ? date('Y-m-d', strtotime($request->last_date)) : date('Y-m-d');
+        $last_date = $request->last_date ? date('Y-m-d', strtotime($request->last_date . '+ 1 day')) : date('Y-m-d', strtotime(date('Y-m-d') . '+ 1 day'));
         $jenis_laka = $request->jenis_laka ? $request->jenis_laka : 'semua';
         $sebab_laka = $request->sebab_laka ? $request->sebab_laka : 'semua';
         $tkp = $request->tkp ? $request->tkp : 'semua';
@@ -40,7 +40,7 @@ class DataKecelakaanController extends Controller
                 if ($tkp != 'semua')
                     $query->where('tkp', $tkp);
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('waktu_laka', 'desc')
             ->get();
         return view('data-kecelakaan.index')->with($data);
     }
