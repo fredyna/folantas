@@ -78,6 +78,12 @@
                             Kontak
                         </a>
                     </li>
+
+                    <li class="nav-item ">
+                        <a href="{{ route('login') }}" class="nav-link">
+                            Masuk
+                        </a>
+                    </li>
                 </ul>
 
                 <ul class="ml-lg-auto list-unstyled m-0">

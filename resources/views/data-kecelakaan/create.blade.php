@@ -96,12 +96,52 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="waktu_laka" class="col-sm-3 col-form-label">Waktu_laka Kejadian</label>
-                                <div class="col-sm-3">
-                                    <input type="date" class="form-control {{ $errors->has('waktu_laka') ? 'has-error':'' }}" id="waktu_laka" name="waktu_laka"  value="{{ old('waktu_laka') }}">
-
+                                @php
+                                    $tanggal = date('Y-m-d');
+                                    $jam = date('H');
+                                    $menit = date('i');
+                                    $detik = date('s');
+                                @endphp
+                                <label for="waktu_laka" class="col-sm-3 col-form-label">Waktu Kejadian</label>
+                                <div class="col-md-3">
+                                    <input type="date" class="form-control {{ $errors->has('waktu_laka') ? 'has-error':'' }}" id="waktu_laka" name="waktu_laka"  value="{{ $tanggal }}">
+                                </div>
+                                <div class="col-md-1">
+                                    <select name="jam" id="jam" class="form-control">
+                                        @for ($i = 0; $i < 60; $i++)
+                                            <option value="{{ $i }}" {{ $jam == $i ? 'selected':'' }}>{{ $i }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <select name="menit" id="menit" class="form-control">
+                                        @for ($i = 0; $i < 60; $i++)
+                                            <option value="{{ $i }}" {{ $menit == $i ? 'selected':'' }}>{{ $i }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <select name="detik" id="detik" class="form-control">
+                                        @for ($i = 0; $i < 60; $i++)
+                                            <option value="{{ $i }}" {{ $detik == $i ? 'selected':'' }}>{{ $i }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                                <div class="col-md-9 offset-md-3">
                                     @if ($errors->has('waktu_laka'))
                                         <p class="text-danger">{{ $errors->first('waktu_laka') }}</p>
+                                    @endif
+
+                                    @if ($errors->has('jam'))
+                                        <p class="text-danger">{{ $errors->first('jam') }}</p>
+                                    @endif
+
+                                    @if ($errors->has('menit'))
+                                        <p class="text-danger">{{ $errors->first('menit') }}</p>
+                                    @endif
+
+                                    @if ($errors->has('detik'))
+                                        <p class="text-danger">{{ $errors->first('detik') }}</p>
                                     @endif
                                 </div>
                             </div>

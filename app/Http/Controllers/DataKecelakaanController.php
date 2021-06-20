@@ -16,10 +16,14 @@ class DataKecelakaanController extends Controller
 
     public function index(Request $request)
     {
+        $first_date = $request->first_date ? date('Y-m-d', strtotime($request->first_date)) : date('Y-m-d');
+        $last_date = $request->last_date ? date('Y-m-d', strtotime($request->last_date)) : date('Y-m-d');
         $jenis_laka = $request->jenis_laka ? $request->jenis_laka : 'semua';
         $sebab_laka = $request->sebab_laka ? $request->sebab_laka : 'semua';
         $tkp = $request->tkp ? $request->tkp : 'semua';
 
+        $data['first_date'] = $first_date;
+        $data['last_date'] = $last_date;
         $data['jenis_laka'] = $jenis_laka;
         $data['sebab_laka'] = $sebab_laka;
         $data['tkp'] = $tkp;
@@ -27,6 +31,7 @@ class DataKecelakaanController extends Controller
             if ($jenis_laka != 'semua')
                 $query->where('jenis_laka', $jenis_laka);
         })
+            ->whereBetween('waktu_laka', [$first_date, $last_date])
             ->where(function ($query) use ($sebab_laka) {
                 if ($sebab_laka != 'semua')
                     $query->where('sebab_laka', $sebab_laka);
@@ -66,6 +71,10 @@ class DataKecelakaanController extends Controller
             'sim_pelaku' => 'nullable',
         ]);
 
+        $waktu_laka = date('Y-m-d H:i:s', strtotime($request->waktu_laka . ' ' . $request->jam . ':' . $request->menit . ':' . $request->detik));
+        $request->replace($request->except(['jam', 'menit', 'detik']));
+        $request->merge(['waktu_laka' => $waktu_laka]);
+
         $data = $request->all();
 
         DataKecelakaan::create($data);
@@ -100,7 +109,12 @@ class DataKecelakaanController extends Controller
             'sim_pelaku' => 'nullable',
         ]);
 
+        $waktu_laka = date('Y-m-d H:i:s', strtotime($request->waktu_laka . ' ' . $request->jam . ':' . $request->menit . ':' . $request->detik));
+        $request->replace($request->except(['jam', 'menit', 'detik']));
+        $request->merge(['waktu_laka' => $waktu_laka]);
+
         $data = $request->all();
+
         $kecelakaan = DataKecelakaan::findOrFail($id);
         $kecelakaan->update($data);
 

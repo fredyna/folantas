@@ -33,6 +33,15 @@
                         <div class="row mb-3 collapse" id="filter">
                             <div class="col-md-10">
                                 <div class="form-group row">
+                                    <label for="jenis_laka" class="col-sm-3 col-form-label">Waktu Laka</label>
+                                    <div class="col-sm-4 mb-2">
+                                        <input type="date" class="form-control" id="first_date" value="{{ $first_date }}">
+                                    </div>
+                                    <div class="col-sm-4 mb-2">
+                                        <input type="date" class="form-control" id="last_date" value="{{ $last_date }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label for="jenis_laka" class="col-sm-3 col-form-label">Jenis Laka</label>
                                     <div class="col-sm-9">
                                         <select name="jenis_laka" id="jenis_laka" class="form-control {{ $errors->has('jenis_laka') ? 'has-error':'' }}">
@@ -185,11 +194,13 @@
         }
 
         function searchData(){
+            let first_date = $("#first_date").val();
+            let last_date = $("#last_date").val();
             let jenis_laka = $("#jenis_laka").val();
             let sebab_laka = $("#sebab_laka").val();
             let tkp = $("#tkp").val();
-            let url = "{{ route('data-kecelakaan.index') }}" + "?jenis_laka=" + jenis_laka
-                + "&sebab_laka=" + sebab_laka + "&tkp=" + tkp;
+            let url = "{{ route('data-kecelakaan.index') }}" + "?first_date=" + first_date + "&last_date=" + last_date
+                +"&jenis_laka=" + jenis_laka + "&sebab_laka=" + sebab_laka + "&tkp=" + tkp;
 
             window.location.href = url;
         }
