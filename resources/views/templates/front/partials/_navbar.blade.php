@@ -40,7 +40,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary main-nav navbar-togglable rounded-radius">
 
-            <a class="navbar-brand d-lg-none d-block" href="">
+            <a class="navbar-brand d-lg-none d-block" href="{{ route('home') }}">
                 <h4>Folantas</h4>
             </a>
             <!-- Toggler -->
@@ -63,7 +63,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="#" class="nav-link js-scroll-trigger">
+                        <a href="{{ route('themes.kemacetan') }}" class="nav-link js-scroll-trigger">
                             Data Kemacetan
                         </a>
                     </li>

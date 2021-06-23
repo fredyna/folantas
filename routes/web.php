@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/berita', 'front\BeritaController@index')->name('themes.berita');
 Route::get('/detail-berita/{slug}', 'front\BeritaController@show')->name('themes.berita.show');
 Route::get('/data-kecelakaan', 'front\DataKecelakaanController@index')->name('themes.kecelakaan');
+Route::get('/data-kemacetan', 'front\DataKemacetanController@index')->name('themes.kemacetan');
 
 /** modul master */
 Route::group(['prefix' => 'dashboard'], function () {

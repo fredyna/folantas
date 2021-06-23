@@ -22,13 +22,6 @@ class DataKemacetanController extends Controller
         $data['first_date'] = $first_date;
         $data['last_date'] = $last_date;
         $data['penyebab'] = $penyebab;
-        $data['kemacetan'] = DataKemacetan::where(function ($query) use ($penyebab) {
-            if ($penyebab != 'semua')
-                $query->where('penyebab', $penyebab);
-        })
-            ->whereBetween('waktu', [$first_date, $last_date])
-            ->orderBy('waktu', 'desc')
-            ->get();
 
         $data['kemacetan'] = DataKemacetan::select('*')
             ->whereBetween('waktu', [$first_date, $last_date])

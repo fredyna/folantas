@@ -2,7 +2,7 @@
     ================================================= -->
     <nav class="navbar navbar-expand-lg navbar-dark trans-navigation fixed-top navbar-togglable">
         <div class="container">
-            <a class="navbar-brand" href="index-3.html">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 <h3>FOLANTAS</h3>
             </a>
             <!-- Toggler -->
@@ -25,7 +25,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="#" class="nav-link js-scroll-trigger">
+                        <a href="{{ route('themes.kemacetan') }}" class="nav-link js-scroll-trigger">
                             Data Kemacetan
                         </a>
                     </li>
@@ -36,8 +36,8 @@
                     </li>
 
                     <li class="nav-item ">
-                        <a href="contact.html" class="nav-link">
-                            Kontak
+                        <a href="{{ route('login') }}" class="nav-link">
+                            Masuk
                         </a>
                     </li>
                 </ul>
