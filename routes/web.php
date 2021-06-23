@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/berita', 'front\BeritaController@index')->name('themes.berita');
 Route::get('/detail-berita/{slug}', 'front\BeritaController@show')->name('themes.berita.show');
+Route::get('/data-kecelakaan', 'front\DataKecelakaanController@index')->name('themes.kecelakaan');
 
 /** modul master */
 Route::group(['prefix' => 'dashboard'], function () {
@@ -24,6 +25,7 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/user-json', 'UserController@userJson')->name('user.json');
     Route::resource('/user', 'UserController')->except(['create', 'edit']);
     Route::get('/setting-account', 'SettingAccountController@index')->name('setting.account');
+    Route::post('/setting-account', 'SettingAccountController@update');
 
     //data kecelakaan
     Route::resource('/data-kecelakaan', 'DataKecelakaanController');

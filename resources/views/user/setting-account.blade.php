@@ -16,15 +16,12 @@
                         <p id="ket-form" class="card-description">Form Setting Data User</p>
                         <hr />
 
-                        <form action="{{ route('user.store') }}" method="post">
+                        <form action="{{ route('setting.account') }}" method="post">
                             @csrf
-
-                            <input id="method" type="hidden" name="method" value="post">
-                            <input id="id_user" type="hidden" name="id_user">
 
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control {{ $errors->has('email') ? 'has-error':'' }}" id="email" name="email" placeholder="email" value="{{ old('email') }}">
+                                <input type="email" class="form-control {{ $errors->has('email') ? 'has-error':'' }}" id="email" name="email" placeholder="email" value="{{ Auth::user()->email }}">
 
                                 @if ($errors->has('email'))
                                     <p class="text-danger">{{ $errors->first('email') }}</p>
@@ -33,7 +30,7 @@
 
                             <div class="form-group">
                                 <label for="name">Nama</label>
-                                <input type="text" class="form-control {{ $errors->has('name') ? 'has-error':'' }}" id="name" name="name" placeholder="Nama..." value="{{ old('name') }}">
+                                <input type="text" class="form-control {{ $errors->has('name') ? 'has-error':'' }}" id="name" name="name" placeholder="Nama..." value="{{ Auth::user()->name }}">
 
                                 @if ($errors->has('name'))
                                     <p class="text-danger">{{ $errors->first('name') }}</p>
@@ -59,8 +56,7 @@
                                 @endif
                             </div>
 
-                            <button id="btn-tambah" type="submit" class="btn btn-success mr-2">Tambah</button>
-                            <button type="button" onclick="batalEdit()" class="btn btn-light">Cancel</button>
+                            <button id="btn-tambah" type="submit" class="btn btn-success px-4 float-right">Simpan</button>
                         </form>
                     </div>
                 </div>
@@ -76,68 +72,6 @@
         $(function(){
             $("#user").addClass('active');
         });
-
-        let role_search = $("#role_search").val();
-        let user_json = "{{ route('user.json') }}" + "?role=" + role_search;
-
-        var table_user = $('#table-user').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: user_json,
-            columns: [
-                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                { data: 'email', name: 'email' },
-                { data: 'name', name: 'name' },
-                { data: 'role', name: 'role' },
-                { data: 'verifikasi', name: 'verifikasi', class: 'text-center' },
-                { data: 'action', name: 'action', class: 'text-center' },
-            ],
-        });
-
-        function editData(id, email, name, role_id){
-            $("#ket-form").text('Form Edit Data User');
-            $("#btn-tambah").text('Simpan');
-            $("#method").val('patch');
-            $("#id_user").val(id);
-            $("#role").val(role_id);
-            $("#email").val(email);
-            $("#name").val(name);
-        }
-
-        function batalEdit(){
-            $("#ket-form").text('Form Tambah Data User');
-            $("#btn-tambah").text('Tambah');
-            $("#method").val('post');
-            $("#id_user").val("");
-            $("#role").val("");
-            $("#email").val("");
-            $("#name").val("");
-        }
-
-        function hapusData(id){
-          let y = confirm('Yakin mau dihapus?');
-          if(y) $("#user-" + id).submit();
-        }
-
-        function searchData(){
-            role_search = $("#role_search").val();
-            user_json = "{{ route('user.json') }}" + "?role=" + role_search;
-            table_user.destroy();
-
-            table_user = $('#table-user').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: user_json,
-                columns: [
-                    { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                    { data: 'email', name: 'email' },
-                    { data: 'name', name: 'name' },
-                    { data: 'role', name: 'role' },
-                    { data: 'verifikasi', name: 'verifikasi',  class: 'text-center' },
-                    { data: 'action', name: 'action', class: 'text-center' },
-                ],
-            });
-        }
     </script>
 @endsection
 

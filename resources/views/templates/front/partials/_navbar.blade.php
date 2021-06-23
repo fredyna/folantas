@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="#" class="nav-link js-scroll-trigger">
+                        <a href="{{ route('themes.kecelakaan') }}" class="nav-link js-scroll-trigger">
                             Data Kecelakaan
                         </a>
                     </li>
@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="pricing.html" class="nav-link js-scroll-trigger">
+                        <a href="{{ route('themes.berita') }}" class="nav-link js-scroll-trigger">
                             Berita
                         </a>
                     </li>

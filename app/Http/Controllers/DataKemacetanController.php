@@ -37,8 +37,22 @@ class DataKemacetanController extends Controller
                     $query->where('penyebab', $penyebab);
             })
             ->get();
-        // dd($data);
+
+        $data['grafik_sebab'] = [
+            'KECELAKAAN' => $this->getDataSebabMacet('KECELAKAAN', $first_date, $last_date),
+            'PENUTUPAN JALAN' => $this->getDataSebabMacet('PENUTUPAN JALAN', $first_date, $last_date),
+            'KERETA API' => $this->getDataSebabMacet('KERETA API', $first_date, $last_date),
+            'LAINNYA' => $this->getDataSebabMacet('LAINNYA', $first_date, $last_date),
+        ];
+
         return view('data-kemacetan.index')->with($data);
+    }
+
+    public function getDataSebabMacet($penyebab, $first_date, $last_date)
+    {
+        return DataKemacetan::where('penyebab', $penyebab)
+            ->whereBetween('waktu', [$first_date, $last_date])
+            ->count();
     }
 
     public function create()
