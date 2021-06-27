@@ -37,6 +37,9 @@ Route::group(['prefix' => 'dashboard'], function () {
     //manajemen berita
     Route::resource('/berita', 'BeritaController');
 
+    Route::resource('/lapor-kecelakaan', 'LaporKecelakaanController');
+    Route::resource('/lapor-kemacetan', 'LaporKemacetanController');
+
     /** modul log */
     Route::get('log-json', 'LogController@index_json')->name('log.json');
     Route::resource('log', 'LogController')->only(['index']);

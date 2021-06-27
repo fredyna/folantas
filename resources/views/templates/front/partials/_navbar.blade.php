@@ -74,12 +74,6 @@
                     </li>
 
                     <li class="nav-item ">
-                        <a href="contact.html" class="nav-link">
-                            Kontak
-                        </a>
-                    </li>
-
-                    <li class="nav-item ">
                         <a href="{{ route('login') }}" class="nav-link">
                             Masuk
                         </a>

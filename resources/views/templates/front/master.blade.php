@@ -24,8 +24,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <a href="#" class="btn btn-info btn-sm w-100 mb-2">Lapor Kemacetan</a>
-                    <a href="#" class="btn btn-warning btn-sm w-100">Lapor Kecelakaan</a>
+                    <a href="{{ route('lapor-kemacetan.create') }}" class="btn btn-info btn-sm w-100 mb-2">Lapor Kemacetan</a>
+                    <a href="{{ route('lapor-kecelakaan.create') }}" class="btn btn-warning btn-sm w-100">Lapor Kecelakaan</a>
                 </div>
             </div>
         </div>

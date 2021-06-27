@@ -11,11 +11,13 @@
             </ol>
         </nav>
 
+        @if (Auth()->user()->role_id == 1)
         <div class="row mb-4">
             <div class="col-12 text-right">
                 <a href="{{ route('data-kecelakaan.create') }}" class="btn btn-success">Tambah Data</a>
             </div>
         </div>
+        @endif
 
         {{-- filter data --}}
         <div class="row">
@@ -350,7 +352,9 @@
                                         <th>JK KORBAN</th>
                                         <th class="text-right">USIA KORBAN</th>
                                         <th class="text-center">WAKTU</th>
-                                        <th class="text-center">Aksi</th>
+                                        @if (Auth()->user()->role_id == 1)
+                                        <th class="text-center">AKSI</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -365,6 +369,7 @@
                                                <td>{{ $item->jk_korban }}</td>
                                                <td class="text-right">{{ $item->usia_korban }} TAHUN</td>
                                                <td class="text-center">{{ $item->waktu_laka }}</td>
+                                               @if (Auth()->user()->role_id == 1)
                                                <td class="text-center">
                                                    <a href="{{ route('data-kecelakaan.show', $item->id) }}" class="p-1" data-toggle="tooltip" data-placement="left" title="Edit">
                                                         <i class="fa fa-edit text-success font-medium-3"></i>
@@ -378,6 +383,7 @@
                                                         @method('DELETE')
                                                     </form>
                                                </td>
+                                               @endif
                                            </tr>
                                        @endforeach
                                     @else

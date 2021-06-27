@@ -58,12 +58,28 @@
             </a>
         </li>
 
+        @if (Auth()->user()->role_id == 1)
         <li id="berita" class="nav-item">
             <a class="nav-link" href="{{ route('berita.index') }}">
             <i class="icon-list menu-icon"></i>
             <span class="menu-title">Manajemen Berita</span>
             <span class="badge badge-success"></span>
             </a>
+        </li>
+        @endif
+
+        <li id="data-laporan" class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#laporan" aria-expanded="false" aria-controls="laporan">
+                <i class="icon-docs menu-icon"></i>
+                <span class="menu-title">Data Laporan</span>
+                <span class="badge badge-info"></span>
+            </a>
+            <div class="collapse" id="laporan">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a id="lapor-kecelakaan" class="nav-link" href="{{ route('lapor-kecelakaan.index') }}">Lapor Kecelakaan</a></li>
+                    <li class="nav-item"> <a id="lapor-kemacetan" class="nav-link" href="{{ route('lapor-kemacetan.index') }}">Lapor Kemacetan</a></li>
+                </ul>
+            </div>
         </li>
 
         @if (Auth()->user()->role_id == 1)

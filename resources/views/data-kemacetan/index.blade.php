@@ -11,11 +11,13 @@
             </ol>
         </nav>
 
+        @if (Auth()->user()->role_id == 1)
         <div class="row mb-4">
             <div class="col-12 text-right">
                 <a href="{{ route('data-kemacetan.create') }}" class="btn btn-success">Tambah Data</a>
             </div>
         </div>
+        @endif
 
         {{-- filter data  --}}
         <div class="row">
@@ -162,7 +164,9 @@
                                         <th>PANJANG</th>
                                         <th>SEBAB MACET</th>
                                         <th class="text-center">WAKTU</th>
+                                        @if (Auth()->user()->role_id == 1)
                                         <th class="text-center">AKSI</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -175,6 +179,7 @@
                                                <td>{{ $item->panjang }} KM</td>
                                                <td>{{ $item->penyebab }}</td>
                                                <td class="text-center">{{ date('Y-m-d H:i:s', strtotime($item->waktu)) }}</td>
+                                               @if (Auth()->user()->role_id == 1)
                                                <td class="text-center">
                                                    <a href="{{ route('data-kemacetan.show', $item->id) }}" class="p-1" data-toggle="tooltip" data-placement="left" title="Edit">
                                                         <i class="fa fa-edit text-success font-medium-3"></i>
@@ -188,6 +193,7 @@
                                                         @method('DELETE')
                                                     </form>
                                                </td>
+                                               @endif
                                            </tr>
                                        @endforeach
                                     @else
