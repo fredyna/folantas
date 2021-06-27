@@ -97,6 +97,18 @@
         </li>
         @endif
 
+        <li id="berita" class="nav-item">
+            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                <i class="icon-logout menu-icon"></i>
+                <span class="menu-title">Keluar</span>
+                <span class="badge badge-success"></span>
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </li>
+
       {{-- @if (Auth()->user()->role_id == 1)
         <li id="log" class="nav-item">
             <a class="nav-link" href="{{ route('log.index') }}">
