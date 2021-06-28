@@ -29,7 +29,7 @@
         <a class="nav-link" href="{{ route('notifikasi.index') }}">
           <i class="icon-bell menu-icon"></i>
           <span class="menu-title">Notifikasi</span>
-          <span class="badge badge-success"></span>
+          <span class="badge badge-success">{{ Auth::user()->unreadNotifications()->count() }}</span>
         </a>
       </li>
 

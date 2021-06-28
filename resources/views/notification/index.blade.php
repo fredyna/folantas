@@ -23,12 +23,12 @@
                                 <div class="preview-item border-bottom px-3 {{ $notif->read_at == null ? 'alert-warning' : '' }}" onclick="openNotification('{{ $notif->id }}', '{{ $notif->data['url'] }}')">
                                         <div class="preview-item-content d-flex flex-grow">
                                             <div class="flex-grow">
-                                                <h6 class="preview-subject">{{ $notif->data['title'] }}
+                                                <h6 class="preview-subject">{{ $notif->data['judul'] }}
                                                     <span class="float-right small">
                                                     <span class="text-muted pr-3">{{ $notif->created_at->diffForHumans() }}</span>
                                                     </span>
                                                 </h6>
-                                                <p>{{ Str::limit($notif->data['message'], 150) }}</p>
+                                                <p>{!! Str::limit(strip_tags($notif->data['deskripsi']), 150, '...') !!}</p>
                                             </div>
                                         </div>
                                     </div>

@@ -2,10 +2,7 @@
 /public/hot
 /public/storage
 /public/berkas/laporan/*
-/public/berkas/rumahsakit/*
-/public/berkas/sopir/*
-/public/berkas/warga/bersama-ktp/*
-/public/berkas/warga/ktp/*
+/public/berkas/berita/*
 /storage/*.key
 /vendor
 .env

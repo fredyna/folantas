@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Berita;
 use App\Laporan;
+use App\Notifications\LaporanNotification;
+use App\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -59,8 +65,21 @@ class LaporKecelakaanController extends Controller
             'deskripsi' => $request->deskripsi,
         ];
 
-        Laporan::create($data);
-        Alert::success('Sukses!', 'Berhasil simpan data.');
+        DB::beginTransaction();
+        try {
+            $laporan = Laporan::create($data);
+            $url = route('lapor-kecelakaan.show', $laporan->id);
+            $laporan['url'] = $url;
+
+            $user = User::where('role_id', 1)->first();
+            Notification::send($user, new LaporanNotification($laporan));
+
+            DB::commit();
+            Alert::success('Sukses!', 'Berhasil simpan data.');
+        } catch (Exception $e) {
+            DB::rollBack();
+            Alert::error('Error!', 'Gagal simpan data. ' . $e->getMessage());
+        }
 
         return redirect()->route('lapor-kecelakaan.index');
     }
@@ -106,6 +125,28 @@ class LaporKecelakaanController extends Controller
         $laporan->delete();
 
         Alert::success('Sukses!', 'Berhasil hapus data.');
+        return redirect()->back();
+    }
+
+    public function create_berita(Request $request)
+    {
+        $request->validate([
+            'laporan_id' => 'required',
+        ]);
+
+        $laporan = Laporan::findOrFail($request->laporan_id);
+        File::copy(public_path('berkas/laporan/' . $laporan->foto), public_path('berkas/berita/' . $laporan->foto));
+
+        $data = [
+            'judul' => $laporan->judul,
+            'thumbnail' => $laporan->foto,
+            'deskripsi' => $laporan->deskripsi,
+            'slug' => Str::slug($laporan->judul, '-'),
+        ];
+
+        Berita::create($data);
+        Alert::success('Sukses!', 'Berhasil membuat berita.');
+
         return redirect()->back();
     }
 }

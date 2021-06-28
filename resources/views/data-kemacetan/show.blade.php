@@ -113,7 +113,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <button type="submit" class="btn btn-success px-4 mr-2">simpan</button>
+                                    <button type="submit" class="btn btn-success px-4 mr-2">Simpan</button>
                                 </div>
                             </div>
 

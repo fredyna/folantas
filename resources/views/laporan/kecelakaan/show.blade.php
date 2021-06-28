@@ -60,7 +60,7 @@
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
                                     <button type="submit" class="btn btn-success px-4 mr-2">Simpan</button>
-                                    <a href="{{ route('lapor-kecelakaan.index') }}" class="btn btn-light px-4 float-right">Kembali</a>
+                                    <a href="{{ route('data-kecelakaan.create-berita') . '?laporan_id=' . $laporan->id }}" class="btn btn-light px-4 float-right"><i class="fa fa-pencil"></i> Buat Berita</a>
                                 </div>
                             </div>
 

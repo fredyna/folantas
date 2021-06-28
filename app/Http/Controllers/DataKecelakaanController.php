@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Berita;
 use App\DataKecelakaan;
+use App\Laporan;
 use Illuminate\Http\Request;
-use PDO;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 class DataKecelakaanController extends Controller
 {

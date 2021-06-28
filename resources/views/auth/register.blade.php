@@ -10,7 +10,7 @@
         <div class="content-wrapper full-page-wrapper d-flex align-items-center auth">
           <div class="row w-100">
             <div class="col-lg-8 mx-auto">
-              <div class="row">
+              <div class="row justify-content-center">
                 <div class="col-lg-6 bg-white">
                   <div class="auth-form-light text-left p-5">
                     <h2>Daftar</h2>
@@ -64,13 +64,10 @@
                           <button type="submit" class="btn btn-block btn-success btn-lg font-weight-medium">Daftar</button>
                         </div>
                         <div class="mt-2 text-center">
-                          <a href="login.html" class="auth-link text-black">Sudah punya akun? <span class="font-weight-medium">Masuk</span></a>
+                          <a href="{{ route('login') }}" class="auth-link text-black">Sudah punya akun? <span class="font-weight-medium">Masuk</span></a>
                         </div>
                     </form>
                   </div>
-                </div>
-                <div class="col-lg-6 register-half-bg d-flex flex-row">
-                  <p class="text-grey font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2020 All right reserved</p>
                 </div>
               </div>
             </div>

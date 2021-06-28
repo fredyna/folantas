@@ -18,7 +18,7 @@
                         </div>
                     </div>
                 @endif
-              <div class="row">
+              <div class="row justify-content-center">
                 <div class="col-lg-6 bg-white">
                   <div class="auth-form-light text-left p-5">
                     <h2>Masuk</h2>
@@ -51,19 +51,20 @@
                           <button type="submit" class="btn btn-block btn-success btn-lg font-weight-medium">Masuk</button>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-6">
+                            <div class="col-md-12 text-center">
                                 <a href="{{ route('register') }}" class="auth-link text-black">Daftar Akun Baru</a>
                             </div>
-                            <div class="col-md-6 text-right">
+                            {{-- <div class="col-md-6 text-right">
                                 <a href="#" class="auth-link text-black">Lupa password?</a>
-                            </div>
+                            </div> --}}
                         </div>
                     </form>
-                  </div>
                 </div>
-                <div class="col-lg-6 login-half-bg d-flex flex-row">
+                <p class="text-grey font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2021 All right reserved</p>
+                </div>
+                {{-- <div class="col-lg-6 login-half-bg d-flex flex-row">
                   <p class="text-grey font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2021 All right reserved</p>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>

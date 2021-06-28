@@ -29,9 +29,11 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::post('/setting-account', 'SettingAccountController@update');
 
     //data kecelakaan
+    Route::get('/data-kecelakaan/buat-berita', 'LaporKecelakaanController@create_berita')->name('data-kecelakaan.create-berita');
     Route::resource('/data-kecelakaan', 'DataKecelakaanController');
 
     //data kemacetan
+    Route::get('/data-kemacetan/buat-berita', 'LaporKemacetanController@create_berita')->name('data-kemacetan.create-berita');
     Route::resource('/data-kemacetan', 'DataKemacetanController');
 
     //manajemen berita

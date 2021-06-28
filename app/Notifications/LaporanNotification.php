@@ -3,9 +3,8 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Str;
 
 class LaporanNotification extends Notification
 {
@@ -41,8 +40,11 @@ class LaporanNotification extends Notification
     public function toArray($notifiable)
     {
         return [
+            'id' => $this->laporan->id,
             'judul' => $this->laporan->judul,
-
+            'url' => $this->laporan->url,
+            'deskripsi' => $this->laporan->deskripsi,
+            'created_at' => $this->laporan->created_at
         ];
     }
 }
