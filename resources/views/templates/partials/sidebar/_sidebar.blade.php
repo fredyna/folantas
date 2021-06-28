@@ -98,6 +98,14 @@
         @endif
 
         <li id="berita" class="nav-item">
+            <a class="nav-link" href="{{ route('home') }}">
+            <i class="icon-home menu-icon"></i>
+            <span class="menu-title">Halaman Awal</span>
+            <span class="badge badge-success"></span>
+            </a>
+        </li>
+
+        <li id="berita" class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <i class="icon-logout menu-icon"></i>
                 <span class="menu-title">Keluar</span>
