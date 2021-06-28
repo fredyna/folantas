@@ -25,6 +25,7 @@
         </a>
       </li>
 
+      @if (Auth()->user()->role_id == 1)
       <li id="notifikasi" class="nav-item">
         <a class="nav-link" href="{{ route('notifikasi.index') }}">
           <i class="icon-bell menu-icon"></i>
@@ -33,7 +34,6 @@
         </a>
       </li>
 
-        @if (Auth()->user()->role_id == 1)
         <li id="user" class="nav-item">
             <a class="nav-link" href="{{ route('user.index') }}">
                 <i class="icon-people menu-icon"></i>
