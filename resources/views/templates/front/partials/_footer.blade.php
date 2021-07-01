@@ -58,15 +58,20 @@
                     <h3>Socials</h3>
                     <!-- Links -->
                     <ul class="list-unstyled footer-links">
-                        <li><a href="https://facebook.com"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                        <!-- <li><a href="https://facebook.com"><i class="fab fa-facebook-f"></i>Facebook</a></li> -->
                         <li>
-                        <a href="https://twitter.com"><i class="fab fa-twitter"></i>Twitter
+                        <a href="#"><i class="fab fa-twitter"></i>Twitter
+                        <!-- <a href="https://twitter.com"><i class="fab fa-twitter"></i>Twitter -->
                         </a></li>
                         <li><a href="https://pinterest.com"><i class="fab fa-pinterest-p"></i>Pinterest
+                        <!-- <li><a href="https://pinterest.com"><i class="fab fa-pinterest-p"></i>Pinterest -->
                         </a></li>
                         <li><a href="https://linkedin.com"><i class="fab fa-linkedin"></i>linkedin
+                        <li><a href="#"><i class="fab fa-linkedin"></i>linkedin
                         </a></li>
-                        <li><a href="https://youtube.com"><i class="fab fa-youtube"></i>YouTube
+                        <li><a href="#"><i class="fab fa-youtube"></i>YouTube
+                        <!-- <li><a href="https://youtube.com"><i class="fab fa-youtube"></i>YouTube -->
                         </a></li>
                     </ul>
                 </div>

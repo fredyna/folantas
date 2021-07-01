@@ -16,7 +16,7 @@
                         <i class="ti-mobile"></i>
                     </div>
                     <div class="info-block">
-                        <h5 class="font-weight-500">+7809346657</h5>
+                        <h5 class="font-weight-500">082311466137</h5>
                         <p>Telepon</p>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                         <i class="ti-email"></i>
                     </div>
                     <div class="info-block">
-                        <h5 class="font-weight-500">info@example.com</h5>
+                        <h5 class="font-weight-500">infojalan813@gmail.com</h5>
                         <p>Email</p>
                     </div>
                 </div>
