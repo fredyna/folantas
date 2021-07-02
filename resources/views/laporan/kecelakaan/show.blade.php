@@ -32,6 +32,17 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="lokasi" class="col-sm-3 col-form-label">Lokasi Macet</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control {{ $errors->has('lokasi') ? 'has-error':'' }}" id="lokasi" name="lokasi" value="{{ $laporan->lokasi }}" placeholder="masukan lokasi ..." required>
+
+                                    @if ($errors->has('lokasi'))
+                                        <p class="text-danger">{{ $errors->first('lokasi') }}</p>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="foto" class="col-sm-3 col-form-label">Foto</label>
                                 <div class="col-sm-9">
                                     <img src="{{ asset('berkas/laporan/' . $laporan->foto) }}" alt="Foto" style="width: 200px;" >

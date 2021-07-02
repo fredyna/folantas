@@ -49,6 +49,7 @@ class LaporKecelakaanController extends Controller
     {
         $request->validate([
             'judul' => 'required|min:5|max:200',
+            'lokasi' => 'required',
             'foto' => 'required|image',
             'deskripsi' => 'required|max:2000'
         ]);
@@ -59,6 +60,7 @@ class LaporKecelakaanController extends Controller
 
         $data = [
             'judul' => $request->judul,
+            'lokasi' => $request->lokasi,
             'foto' => $thumbnail,
             'kategori' => 'KECELAKAAN',
             'user_id' => $request->user()->id,
@@ -94,6 +96,7 @@ class LaporKecelakaanController extends Controller
     {
         $request->validate([
             'judul' => 'required|min:5|max:200',
+            'lokasi' => 'required',
             'foto' => 'nullable|image',
             'deskripsi' => 'required|max:2000'
         ]);
@@ -101,6 +104,7 @@ class LaporKecelakaanController extends Controller
         $laporan = Laporan::findOrFail($id);
         $data = [
             'judul' => $request->judul,
+            'lokasi' => $request->lokasi,
             'deskripsi' => $request->deskripsi,
         ];
 

@@ -31,6 +31,17 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="lokasi" class="col-sm-3 col-form-label">Lokasi</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control {{ $errors->has('lokasi') ? 'has-error':'' }}" id="lokasi" name="lokasi" value="{{ old('lokasi') }}" placeholder="masukan lokasi ..." required>
+
+                                    @if ($errors->has('lokasi'))
+                                        <p class="text-danger">{{ $errors->first('lokasi') }}</p>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="foto" class="col-sm-3 col-form-label">Foto</label>
                                 <div class="col-sm-9">
                                     <input type="file" class="form-control {{ $errors->has('foto') ? 'has-error':'' }}" id="foto" name="foto" placeholder="pilih foto" required>
