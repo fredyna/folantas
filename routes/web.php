@@ -39,6 +39,7 @@ Route::group(['prefix' => 'dashboard'], function () {
     //manajemen berita
     Route::resource('/berita', 'BeritaController');
 
+    Route::get('/lapor-kecelakaan/change-status', 'LaporKecelakaanController@change_status')->name('lapor-kecelakaan.change-status');
     Route::resource('/lapor-kecelakaan', 'LaporKecelakaanController');
     Route::get('/lapor-kemacetan/change-status', 'LaporKemacetanController@change_status')->name('lapor-kemacetan.change-status');
     Route::resource('/lapor-kemacetan', 'LaporKemacetanController');

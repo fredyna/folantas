@@ -149,4 +149,21 @@ class LaporKecelakaanController extends Controller
 
         return redirect()->back();
     }
+
+    public function change_status(Request $request)
+    {
+        $request->validate([
+            'status' => 'required',
+        ]);
+
+        $laporan = Laporan::findOrFail($request->laporan_id);
+        $data = [
+            'status' => $request->status,
+        ];
+
+        $laporan->update($data);
+        Alert::success('Sukses!', 'Berhasil perbarui status.');
+
+        return redirect()->route('lapor-kecelakaan.index');
+    }
 }
