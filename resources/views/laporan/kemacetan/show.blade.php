@@ -100,7 +100,7 @@
                                 <div class="col-sm-9">
                                     <button type="submit" class="btn btn-success px-3 ">Simpan</button>
                                     <a href="{{ route('data-kecelakaan.create-berita') . '?laporan_id=' . $laporan->id }}" class="btn btn-light px-3 ml-1 float-right"><i class="fa fa-pencil"></i> Buat Berita</a>
-                                    @if($laporan->status == 'PENDING')
+                                    @if($laporan->status == 'PENDING' && Auth::user()->role_id == 1)
                                     <a href="{{ route('lapor-kemacetan.change-status') . '?laporan_id=' . $laporan->id . '&status=DITOLAK' }}" class="btn btn-danger px-3 ml-1 float-right"><i class="fa fa-close"></i> Tolak</a>
                                     <a href="{{ route('lapor-kemacetan.change-status') . '?laporan_id=' . $laporan->id . '&status=DISETUJUI' }}" class="btn btn-primary px-3 ml-1 float-right"><i class="fa fa-check"></i> Setujui</a>
                                     @endif
