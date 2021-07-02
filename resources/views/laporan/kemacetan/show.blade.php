@@ -31,6 +31,45 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="lokasi" class="col-sm-3 col-form-label">Lokasi Macet</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control {{ $errors->has('lokasi') ? 'has-error':'' }}" id="lokasi" name="lokasi" value="{{ $laporan->lokasi }}" placeholder="masukan lokasi ..." required>
+
+                                    @if ($errors->has('lokasi'))
+                                        <p class="text-danger">{{ $errors->first('lokasi') }}</p>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="panjang" class="col-sm-3 col-form-label">Panjang Macet (KM)</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control {{ $errors->has('panjang') ? 'has-error':'' }}" id="panjang" name="panjang" value="{{ $laporan->panjang }}" placeholder="masukan panjang (KM) ..." required>
+
+                                    @if ($errors->has('panjang'))
+                                        <p class="text-danger">{{ $errors->first('panjang') }}</p>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="penyebab" class="col-sm-3 col-form-label">Sebab Macet</label>
+                                <div class="col-sm-9">
+                                    <select name="penyebab" id="penyebab" class="form-control {{ $errors->has('penyebab') ? 'has-error':'' }}" required>
+                                        <option value="" style="display: none">--pilih sebab macet --</option>
+                                        <option value="KECELAKAAN" {{ $laporan->penyebab == 'KECELAKAAN' ? 'selected':'' }}>KECELAKAAN</option>
+                                        <option value="PENUTUPAN JALAN" {{ $laporan->penyebab == 'PENUTUPAN JALAN' ? 'selected':'' }}>PENUTUPAN JALAN</option>
+                                        <option value="KERETA API" {{ $laporan->penyebab == 'KERETA API' ? 'selected':'' }}>KERETA API</option>
+                                        <option value="LAINNYA" {{ $laporan->penyebab == 'LAINNYA' ? 'selected':'' }}>LAINNYA</option>
+                                    </select>
+
+                                    @if ($errors->has('penyebab'))
+                                        <p class="text-danger">{{ $errors->first('penyebab') }}</p>
+                                    @endif
+                                </div>
+                            </div>
+
                              <div class="form-group row">
                                 <label for="foto" class="col-sm-3 col-form-label">Foto</label>
                                 <div class="col-sm-9">
@@ -59,8 +98,12 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <button type="submit" class="btn btn-success px-4 mr-2">Simpan</button>
-                                    <a href="{{ route('data-kecelakaan.create-berita') . '?laporan_id=' . $laporan->id }}" class="btn btn-light px-4 float-right"><i class="fa fa-pencil"></i> Buat Berita</a>
+                                    <button type="submit" class="btn btn-success px-3 ">Simpan</button>
+                                    <a href="{{ route('data-kecelakaan.create-berita') . '?laporan_id=' . $laporan->id }}" class="btn btn-light px-3 ml-1 float-right"><i class="fa fa-pencil"></i> Buat Berita</a>
+                                    @if($laporan->status == 'PENDING')
+                                    <a href="{{ route('lapor-kemacetan.change-status') . '?laporan_id=' . $laporan->id . '&status=DITOLAK' }}" class="btn btn-danger px-3 ml-1 float-right"><i class="fa fa-close"></i> Tolak</a>
+                                    <a href="{{ route('lapor-kemacetan.change-status') . '?laporan_id=' . $laporan->id . '&status=DISETUJUI' }}" class="btn btn-primary px-3 ml-1 float-right"><i class="fa fa-check"></i> Setujui</a>
+                                    @endif
                                 </div>
                             </div>
 

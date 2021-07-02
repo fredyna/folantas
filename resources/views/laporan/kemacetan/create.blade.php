@@ -31,6 +31,45 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="lokasi" class="col-sm-3 col-form-label">Lokasi Macet</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control {{ $errors->has('lokasi') ? 'has-error':'' }}" id="lokasi" name="lokasi" value="{{ old('lokasi') }}" placeholder="masukan lokasi ...">
+
+                                    @if ($errors->has('lokasi'))
+                                        <p class="text-danger">{{ $errors->first('lokasi') }}</p>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="panjang" class="col-sm-3 col-form-label">Panjang Macet (KM)</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control {{ $errors->has('panjang') ? 'has-error':'' }}" id="panjang" name="panjang" value="{{ old('panjang') }}" placeholder="masukan panjang (KM) ...">
+
+                                    @if ($errors->has('panjang'))
+                                        <p class="text-danger">{{ $errors->first('panjang') }}</p>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="penyebab" class="col-sm-3 col-form-label">Sebab Macet</label>
+                                <div class="col-sm-9">
+                                    <select name="penyebab" id="penyebab" class="form-control {{ $errors->has('penyebab') ? 'has-error':'' }}">
+                                        <option value="" style="display: none">--pilih sebab macet --</option>
+                                        <option value="KECELAKAAN" {{ old('penyebab') == 'KECELAKAAN' ? 'selected':'' }}>KECELAKAAN</option>
+                                        <option value="PENUTUPAN JALAN" {{ old('penyebab') == 'PENUTUPAN JALAN' ? 'selected':'' }}>PENUTUPAN JALAN</option>
+                                        <option value="KERETA API" {{ old('penyebab') == 'KERETA API' ? 'selected':'' }}>KERETA API</option>
+                                        <option value="LAINNYA" {{ old('penyebab') == 'LAINNYA' ? 'selected':'' }}>LAINNYA</option>
+                                    </select>
+
+                                    @if ($errors->has('penyebab'))
+                                        <p class="text-danger">{{ $errors->first('penyebab') }}</p>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="foto" class="col-sm-3 col-form-label">Foto</label>
                                 <div class="col-sm-9">
                                     <input type="file" class="form-control {{ $errors->has('foto') ? 'has-error':'' }}" id="foto" name="foto" placeholder="pilih foto" required>

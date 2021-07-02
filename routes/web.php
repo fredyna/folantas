@@ -40,6 +40,7 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::resource('/berita', 'BeritaController');
 
     Route::resource('/lapor-kecelakaan', 'LaporKecelakaanController');
+    Route::get('/lapor-kemacetan/change-status', 'LaporKemacetanController@change_status')->name('lapor-kemacetan.change-status');
     Route::resource('/lapor-kemacetan', 'LaporKemacetanController');
 
     /** modul log */

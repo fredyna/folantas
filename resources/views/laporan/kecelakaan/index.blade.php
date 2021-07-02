@@ -36,6 +36,7 @@
                                         @if (Auth()->user()->role_id == 1)
                                         <th>USER</th>
                                         @endif
+                                        <th class="text-center" width="15%">STATUS</th>
                                         <th class="text-center" width="15%">WAKTU</th>
                                         <th class="text-center">AKSI</th>
                                     </tr>
@@ -56,6 +57,7 @@
                                                @if (Auth()->user()->role_id == 1)
                                                <td>{{ $item->user->name }}</td>
                                                @endif
+                                               <td class="text-center">{{ $item->status }}</td>
                                                <td class="text-center">{{ $item->created_at }}</td>
                                                <td class="text-center">
                                                    <a href="{{ route('lapor-kecelakaan.show', $item->id) }}" class="p-1" data-toggle="tooltip" data-placement="left" title="Edit">

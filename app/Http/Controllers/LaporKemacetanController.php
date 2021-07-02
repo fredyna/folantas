@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Berita;
+use App\DataKemacetan;
 use App\Laporan;
 use App\Notifications\LaporanNotification;
 use App\User;
@@ -50,6 +51,9 @@ class LaporKemacetanController extends Controller
         $request->validate([
             'judul' => 'required|min:5|max:200',
             'foto' => 'required|image',
+            'lokasi' => 'required',
+            'panjang' => 'required|numeric',
+            'penyebab' => 'required',
             'deskripsi' => 'required|max:2000'
         ]);
 
@@ -61,6 +65,9 @@ class LaporKemacetanController extends Controller
             'judul' => $request->judul,
             'foto' => $thumbnail,
             'kategori' => 'KEMACETAN',
+            'lokasi' => $request->lokasi,
+            'panjang' => $request->panjang,
+            'penyebab' => $request->penyebab,
             'user_id' => $request->user()->id,
             'deskripsi' => $request->deskripsi,
         ];
@@ -95,13 +102,19 @@ class LaporKemacetanController extends Controller
         $request->validate([
             'judul' => 'required|min:5|max:200',
             'foto' => 'nullable|image',
-            'deskripsi' => 'required|max:2000'
+            'deskripsi' => 'required|max:2000',
+            'lokasi' => 'required',
+            'panjang' => 'required',
+            'penyebab' => 'required',
         ]);
 
         $laporan = Laporan::findOrFail($id);
         $data = [
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
+            'lokasi' => $request->lokasi,
+            'panjang' => $request->panjang,
+            'penyebab' => $request->penyebab,
         ];
 
         $uploadedThumbnail = $request->file('foto');
@@ -119,6 +132,45 @@ class LaporKemacetanController extends Controller
         return redirect()->route('lapor-kemacetan.index');
     }
 
+    public function change_status(Request $request)
+    {
+        $request->validate([
+            'status' => 'required',
+        ]);
+
+        $laporan = Laporan::findOrFail($request->laporan_id);
+        $data = [
+            'status' => $request->status,
+        ];
+
+        if ($laporan->lokasi == null || $laporan->panjang == null || $laporan->penyebab == null) {
+            Alert::error('Gagal!', 'Data lokasi, panjang macet dan penyebab macet tidak boleh kosong.');
+            return redirect()->back();
+        }
+
+        $data_kemacetan = [
+            'lokasi' => $laporan->lokasi,
+            'panjang' => $laporan->panjang,
+            'penyebab' => $laporan->penyebab,
+            'waktu' => date('Y-m-d H:i:s', strtotime($laporan->created_at))
+        ];
+
+        DB::beginTransaction();
+        try {
+            $laporan->update($data);
+            if ($request->status == 'DISETUJUI')
+                DataKemacetan::create($data_kemacetan);
+
+            DB::commit();
+            Alert::success('Sukses!', 'Berhasil perbarui status.');
+        } catch (Exception $e) {
+            DB::rollBack();
+            Alert::error('Gagal!', 'Gagal perbarui status. ' . $e->getMessage());
+        }
+
+        return redirect()->route('lapor-kemacetan.index');
+    }
+
     public function destroy($id)
     {
         $laporan = Laporan::findOrFail($id);
@@ -129,6 +181,28 @@ class LaporKemacetanController extends Controller
     }
 
     public function create_berita(Request $request)
+    {
+        $request->validate([
+            'laporan_id' => 'required',
+        ]);
+
+        $laporan = Laporan::findOrFail($request->laporan_id);
+        File::copy(public_path('berkas/laporan/' . $laporan->foto), public_path('berkas/berita/' . $laporan->foto));
+
+        $data = [
+            'judul' => $laporan->judul,
+            'thumbnail' => $laporan->foto,
+            'deskripsi' => $laporan->deskripsi,
+            'slug' => Str::slug($laporan->judul, '-'),
+        ];
+
+        Berita::create($data);
+        Alert::success('Sukses!', 'Berhasil membuat berita.');
+
+        return redirect()->back();
+    }
+
+    public function create_data_kemacetan(Request $request)
     {
         $request->validate([
             'laporan_id' => 'required',
