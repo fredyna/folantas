@@ -31,7 +31,7 @@
 
             <div class="col-lg-5 d-none d-lg-block">
                 <div class="banner-img-block">
-                    <img src="{{ asset('rappo/images/bg/a.png') }}" alt="bg hero" class="img-fluid">
+                    <img src="{{ asset('rappo/images/bg/bg.png') }}" alt="bg hero" class="img-fluid">
                 </div>
             </div>
         </div> <!-- / .row -->
