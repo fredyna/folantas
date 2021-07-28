@@ -58,10 +58,10 @@
                     <h3>Socials</h3>
                     <!-- Links -->
                     <ul class="list-unstyled footer-links">
-                        <li><a href="https://web.facebook.com/"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                        <li><a href="https://web.facebook.com/"><i class="fab fa-facebook-f" target="_blank"></i>Facebook</a></li>
                         <!-- <li><a href="https://facebook.com"><i class="fab fa-facebook-f"></i>Facebook</a></li> -->
                         <li>
-                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i>Instagram
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram" target="_blank"></i>Instagram
                         <!-- <a href="https://twitter.com"><i class="fab fa-twitter"></i>Twitter -->
                         </a></li>
                     </ul>
