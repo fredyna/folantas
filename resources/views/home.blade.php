@@ -17,7 +17,7 @@
 
                     <!-- Subheading -->
                     <p class="lead mb-4">
-                        Folantas adalah website penyedia informasi terkini terkait situasi lalu lintas di Kota Tegal dan sekitarnya.
+                        Folantas adalah website penyedia informasi terkait data kecelakaan dan kemacetan lalu lintas di Kota Tegal.
                     </p>
 
                     <!-- Button -->
@@ -57,7 +57,7 @@
                         <i class="ti-layout-media-right"></i>
                     </div>
                     <h4 class="mb-2">Berita Up To Date</h4>
-                    <p>Kami menyajikan berita terbaru tentang kecelakaan dan kemacetan.</p>
+                    <p>Kami menyajikan berita terbaru tentang kecelakaan dan kemacetan lalu lintas.</p>
                 </div>
             </div>
 

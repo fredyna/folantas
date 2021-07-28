@@ -13,7 +13,7 @@
                 <div class="col-lg-9 col-md-12 col-12 text-center">
                     <div class="page-banner-content">
                         <h1 class="display-4 font-weight-bold">Berita</h1>
-                        <p>Kumpulan berita kami seputar informasi lalu lintas</p>
+                        <p>Kumpulan berita kami seputar informasi kecelakaan dan kemacetan lalu lintas</p>
                     </div>
                 </div>
             </div> <!-- / .row -->
