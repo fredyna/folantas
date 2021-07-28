@@ -57,7 +57,7 @@
                         <i class="ti-layout-media-right"></i>
                     </div>
                     <h4 class="mb-2">Berita Up To Date</h4>
-                    <p>Kami menyajikan berita hangat tentang lalu lintas.</p>
+                    <p>Kami menyajikan berita terbaru tentang kecelakaan dan kemacetan.</p>
                 </div>
             </div>
 
@@ -67,7 +67,7 @@
                         <i class="ti-dashboard"></i>
                     </div>
                     <h4 class="mb-2">Respon Cepat</h4>
-                    <p>Segera memproses laporan kecelakaan yang masuk pada sistem.</p>
+                    <p>Segera memproses laporan kecelakaan dan kemacetan yang masuk pada sistem.</p>
                 </div>
             </div>
         </div>
