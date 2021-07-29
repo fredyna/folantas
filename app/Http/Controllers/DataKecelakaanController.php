@@ -100,7 +100,7 @@ class DataKecelakaanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'jenis_laka' => 'required',"jenis_laka harus di isi",
+            'jenis_laka' => 'required',
             'sebab_laka' => 'required',
             'tkp' => 'required',
             'hari' => 'required',
