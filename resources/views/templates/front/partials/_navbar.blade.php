@@ -78,6 +78,12 @@
                             Masuk
                         </a>
                     </li>
+
+                    <li class="nav-item ">
+                        <a href="{{ route('logout') }}" class="nav-link">
+                            Keluar
+                        </a>
+                    </li>
                 </ul>
 
                 <ul class="ml-lg-auto list-unstyled m-0">
