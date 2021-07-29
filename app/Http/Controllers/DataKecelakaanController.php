@@ -149,11 +149,11 @@ class DataKecelakaanController extends Controller
             'profesi_korban' => 'required',
             'pendidikan_korban' => 'required',
             'sim_korban' => 'required',
-            'jk_pelaku' => 'nullable',
-            'usia_pelaku' => 'nullable|numeric',
-            'profesi_pelaku' => 'nullable',
-            'pendidikan_pelaku' => 'nullable',
-            'sim_pelaku' => 'nullable',
+            'jk_pelaku' => 'required',
+            'usia_pelaku' => 'required|numeric',
+            'profesi_pelaku' => 'required',
+            'pendidikan_pelaku' => 'required',
+            'sim_pelaku' => 'required',
         ]);
 
         $waktu_laka = date('Y-m-d H:i:s', strtotime($request->waktu_laka . ' ' . $request->jam . ':' . $request->menit . ':' . $request->detik));
