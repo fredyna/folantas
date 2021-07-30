@@ -40,6 +40,18 @@
                             Masuk
                         </a>
                     </li>
+
+                    <li id="berita" class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            <i class="icon-logout menu-icon"></i>
+                            <span class="menu-title">Keluar</span>
+                            <span class="badge badge-success"></span>
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
                 </ul>
             </div> <!-- / .navbar-collapse -->
         </div> <!-- / .container -->
