@@ -57,6 +57,10 @@
                                                @if (Auth()->user()->role_id == 1)
                                                <td>{{ $item->user->name }}</td>
                                                @endif
+                                               <!-- <td>{!! Str::limit(strip_tags($item->deskripsi), 100, '...') !!}</td>
+                                               @if (Auth()->user()->role_id == 1)
+                                               <td>{{ $item->user->name }}</td>
+                                               @endif -->
                                                <td class="text-center">{{ $item->status }}</td>
                                                <td class="text-center">{{ $item->created_at }}</td>
                                                <td class="text-center">
