@@ -22,7 +22,7 @@
 
                     <!-- Button -->
                     <p class="mb-0">
-                        <a href="#berita" class="btn btn-primary btn-circled">
+                        <a href="berita" class="btn btn-primary btn-circled">
                             Berita Terbaru
                         </a>
                     </p>
