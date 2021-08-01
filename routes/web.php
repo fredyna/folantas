@@ -53,6 +53,8 @@ Route::group(['prefix' => 'dashboard'], function () {
 Route::get('/notifikasi-redirect', 'NotificationController@redirect')->name('notifikasi.redirect');
 Route::get('/notifikasi-json', 'NotificationController@index_json')->name('notifikasi.json');
 Route::get('/notifikasi', 'NotificationController@index')->name('notifikasi.index');
+Route::get('/notifikasi/read-all', 'NotificationController@read_all')->name('notifikasi.read-all');
+Route::get('/notifikasi/destroy', 'NotificationController@destroy')->name('notifikasi.destroy');
 
 /** modul master */
 Route::group(['prefix' => 'master'], function () {

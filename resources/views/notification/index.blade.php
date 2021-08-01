@@ -13,8 +13,14 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Data Notifikasi</h5>
-                        <hr />
+                        <div class="row mb-2">
+                            <div class="col-8">
+                                <h5 class="card-title">Data Notifikasi</h5>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a href="{{ route('notifikasi.read-all') }}" class="btn btn-light">Tandai Sudah Dibaca</a>
+                            </div>
+                        </div>
 
                         @if ($notifications && $notifications->count() > 0)
                             @foreach ($notifications as $notif)
@@ -25,10 +31,13 @@
                                             <div class="flex-grow">
                                                 <h6 class="preview-subject">{{ $notif->data['judul'] }}
                                                     <span class="float-right small">
-                                                    <span class="text-muted pr-3">{{ $notif->created_at->diffForHumans() }}</span>
+                                                        <span class="text-muted">{{ $notif->created_at->diffForHumans() }}</span>
                                                     </span>
                                                 </h6>
-                                                <p>{!! Str::limit(strip_tags($notif->data['deskripsi']), 150, '...') !!}</p>
+                                                <p>
+                                                    {!! Str::limit(strip_tags($notif->data['deskripsi']), 150, '...') !!}
+                                                    <a href="{{ route('notifikasi.destroy') . '?id=' . $notif->id }}" class="float-right text-danger"><i class="fa fa-trash"></i></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class NotificationController extends Controller
 {
@@ -46,5 +47,22 @@ class NotificationController extends Controller
         if (!$notif->read_at)
             $notif->markAsRead();
         return redirect($request->url);
+    }
+
+    public function read_all(Request $request)
+    {
+        $request->user()->unreadNotifications->markAsRead();
+
+        Alert::success('Sukses!', 'Berhasil perbarui data.');
+        return redirect()->back();
+    }
+
+    public function destroy(Request $request)
+    {
+        $notif = $request->user()->notifications->find($request->id);
+        $notif->delete();
+
+        Alert::success('Sukses!', 'Berhasil hapus data.');
+        return redirect()->back();
     }
 }
