@@ -38,8 +38,8 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
-                            <i class="mdi mdi-eye"></i>
+                            <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
+                            <i class="mdi mdi-eye" onclick="showPassword()"></i>
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -78,5 +78,14 @@
   <!-- container-scroller -->
   @include('templates.partials._footer')
 </body>
+<script>
+    function showPassword(){
+        let typeInput = $('#password').attr('type');
+        if(typeInput == 'password')
+            $('#password').replaceWith($('#password').clone().attr('type', 'text'));
+        else $('#password').replaceWith($('#password').clone().attr('type', 'password'));
+
+    }
+</script>
 
 </html>
