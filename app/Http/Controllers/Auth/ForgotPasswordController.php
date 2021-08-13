@@ -22,42 +22,4 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
-
-    public function forget(Request $request)
-    {
-        if (empty($request->nik) || (!empty($request->nik) && $request->nik == '')) {
-            $data['message'] = 'NIK tidak boleh kosong';
-            return view('auth.passwords.error')->with($data);
-        }
-        $data['nik'] = $request->nik;
-
-        return view('auth.passwords.change_password')->with($data);
-    }
-
-    public function change(Request $request)
-    {
-        if (empty($request->nik) || (!empty($request->nik) && $request->nik == '')) {
-            $data['message'] = 'NIK tidak boleh kosong';
-            return view('auth.passwords.error')->with($data);
-        }
-
-        $request->validate([
-            'password' => 'required|min:8|same:r_password',
-        ]);
-
-        $user = User::where('username', $request->nik)->first();
-
-        $data['password'] = bcrypt($request->password);
-        if ($user->update($data))
-            return redirect()->route('auth.success');
-        else {
-            Alert::error('Error!', 'Gagal ubah password.');
-            return redirect()->back();
-        }
-    }
-
-    public function success()
-    {
-        return view('auth.passwords.success');
-    }
 }

@@ -65,7 +65,4 @@ Route::group(['prefix' => 'master'], function () {
 
 Route::get('/home', 'DashboardController@index')->name('dashboard');
 
-Route::get('auth/forgot-password', 'Auth\ForgotPasswordController@forget')->name('auth.forget');
-Route::post('auth/change-password', 'Auth\ForgotPasswordController@change')->name('auth.change-password');
-Route::get('auth/success', 'Auth\ForgotPasswordController@success')->name('auth.success');
 Auth::routes(['verify' => true]);

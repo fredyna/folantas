@@ -51,12 +51,14 @@
                           <button type="submit" class="btn btn-block btn-success btn-lg font-weight-medium">Masuk</button>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-6">
                                 <a href="{{ route('register') }}" class="auth-link text-black">Daftar Akun Baru</a>
                             </div>
-                            {{-- <div class="col-md-6 text-right">
-                                <a href="#" class="auth-link text-black">Lupa password?</a>
-                            </div> --}}
+                            <div class="col-md-6 text-right">
+                                <a class="auth-link text-black" href="{{ route('password.request') }}">
+                                    {{ __('Lupa Password?') }}
+                                </a>
+                            </div>
                         </div>
                     </form>
                 </div>
